@@ -3,83 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LazyCoder | Source Code Store</title>
+    <title>LazyCoder | Buy Source Code & Custom Projects</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        body { background-color: #f8f9fa; }
-        .navbar { background-color: #2c3e50; } /* Dark Blue like RBC/Professional sites */
-        .card { transition: transform 0.2s; border: none; shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .card:hover { transform: translateY(-5px); }
-        .price-tag { font-size: 1.2rem; font-weight: bold; color: #27ae60; }
-        .tech-badge { font-size: 0.8rem; margin-right: 5px; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; }
+        
+        /* Navbar Styling */
+        .navbar { background-color: #2c3e50; padding: 15px 0; }
+        .navbar-brand { font-weight: bold; font-size: 1.5rem; color: #fff !important; }
+        .nav-link { color: rgba(255,255,255,0.8) !important; font-size: 1.1rem; margin-left: 15px; }
+        .nav-link:hover { color: #fff !important; }
+        
+        /* Hero Section */
+        .hero-section { background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%); color: white; padding: 80px 0; border-radius: 0 0 20px 20px; }
+        
+        /* Contact Bar */
+        .contact-bar { background-color: #27ae60; color: white; padding: 10px 0; text-align: center; font-weight: bold; }
+        .contact-bar a { color: white; text-decoration: none; margin: 0 10px; }
+
+        /* Card Styling */
+        .project-card { border: none; transition: transform 0.3s; border-radius: 12px; overflow: hidden; background: white; }
+        .project-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .price-badge { font-size: 1.25rem; font-weight: 800; color: #27ae60; }
+        
+        /* Floating WhatsApp Button for Mobile */
+        .float-wa {
+            position: fixed; bottom: 20px; right: 20px;
+            background-color: #25d366; color: #FFF;
+            border-radius: 50px; text-align: center; font-size: 30px;
+            box-shadow: 2px 2px 3px #999; z-index: 100;
+            width: 60px; height: 60px; line-height: 60px;
+        }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark mb-5">
+    <div class="contact-bar d-none d-lg-block">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#">LazyCoder Store</a>
-            <div class="ms-auto text-white">
-                <small>Built by Sumit</small>
+            <span><i class="fab fa-whatsapp"></i> +91-9572181024</span>
+            <span>|</span>
+            <span><i class="fas fa-envelope"></i> wapka1503@gmail.com</span>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-code"></i> LazyCoder</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#projects">Source Code</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#custom">Custom Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container text-center mb-5">
-        <h1>Premium Source Code Projects</h1>
-        <p class="text-muted">Java (Spring Boot) & Python (Django) projects ready for deployment.</p>
-    </div>
+    <header class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Java & Python Projects</h1>
+            <p class="lead mb-4">High-quality source code for students and developers. Ready to run.</p>
+            <a href="#projects" class="btn btn-light btn-lg fw-bold text-dark px-5">Browse Store</a>
+        </div>
+    </header>
 
-    <div class="container">
+    <section id="projects" class="container my-5">
+        <h2 class="text-center mb-5 fw-bold text-dark">Latest Projects</h2>
         <div class="row">
 
             <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="https://via.placeholder.com/400x200?text=Clinic+System" class="card-img-top" alt="Project Image">
+                <div class="card h-100 project-card shadow-sm">
+                    <img src="https://via.placeholder.com/400x220?text=Clinic+Management" class="card-img-top" alt="Project">
                     <div class="card-body">
-                        <h5 class="card-title">Clinic Management System</h5>
-                        <p class="card-text text-muted">Complete Django project with AI risk analysis features and email notifications.</p>
-                        
-                        <div class="mb-3">
-                            <span class="badge bg-primary tech-badge">Python</span>
-                            <span class="badge bg-success tech-badge">Django</span>
-                            <span class="badge bg-warning text-dark tech-badge">AI</span>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge bg-primary">Python Django</span>
+                            <span class="price-badge">₹499</span>
                         </div>
-
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="price-tag">₹499</span>
-                            <a href="#" class="btn btn-outline-dark btn-sm">Buy Source Code</a>
+                        <h5 class="card-title fw-bold">Clinic Management System</h5>
+                        <p class="card-text text-muted small">Complete hospital management with AI risk analysis and email notifications.</p>
+                        
+                        <div class="d-grid">
+                            <button class="btn btn-dark">Buy Source Code</button>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="https://via.placeholder.com/400x200?text=Java+Banking+App" class="card-img-top" alt="Project Image">
+                <div class="card h-100 project-card shadow-sm">
+                    <img src="https://via.placeholder.com/400x220?text=Banking+System" class="card-img-top" alt="Project">
                     <div class="card-body">
-                        <h5 class="card-title">Banking Portal App</h5>
-                        <p class="card-text text-muted">Secure banking app using Spring Boot, Security, and MySQL.</p>
-                        
-                        <div class="mb-3">
-                            <span class="badge bg-danger tech-badge">Java</span>
-                            <span class="badge bg-info text-dark tech-badge">Spring Boot</span>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge bg-danger">Java Spring</span>
+                            <span class="price-badge">₹999</span>
                         </div>
-
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="price-tag">₹999</span>
-                            <a href="#" class="btn btn-outline-dark btn-sm">Buy Source Code</a>
+                        <h5 class="card-title fw-bold">Online Banking Portal</h5>
+                        <p class="card-text text-muted small">Secure transaction system with Spring Boot security and MySQL database.</p>
+                        
+                        <div class="d-grid">
+                            <button class="btn btn-dark">Buy Source Code</button>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 project-card shadow-sm">
+                    <img src="https://via.placeholder.com/400x220?text=E-Commerce" class="card-img-top" alt="Project">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge bg-warning text-dark">PHP MySQL</span>
+                            <span class="price-badge">₹299</span>
+                        </div>
+                        <h5 class="card-title fw-bold">Simple E-Commerce</h5>
+                        <p class="card-text text-muted small">Lightweight shopping cart project ideal for final year students.</p>
+                        
+                        <div class="d-grid">
+                            <button class="btn btn-dark">Buy Source Code</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-    </div>
 
-    <footer class="bg-dark text-white text-center py-3 mt-5">
-        <p class="mb-0">&copy; 2026 LazyCoder. All rights reserved.</p>
+        </div>
+    </section>
+
+    <section id="custom" class="bg-white py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2 class="fw-bold mb-3">Need a Custom Project?</h2>
+                    <p class="lead text-muted">I can build a project specifically for your requirements in Java, Python, or PHP.</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Final Year College Projects</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Business Websites</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Bug Fixing & Support</li>
+                    </ul>
+                    <a href="https://wa.me/919572181024?text=Hi%20Sumit,%20I%20need%20a%20custom%20project" class="btn btn-success btn-lg mt-3">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    </a>
+                </div>
+                <div class="col-md-6 text-center mt-4 mt-md-0">
+                    <div class="p-5 bg-light rounded-3 border border-2">
+                        <h4>Contact Directly</h4>
+                        <hr>
+                        <p class="mb-2"><i class="fas fa-phone-alt me-2 text-primary"></i> <strong>9572181024</strong></p>
+                        <p class="mb-2"><i class="fas fa-envelope me-2 text-danger"></i> <strong>wapka1503@gmail.com</strong></p>
+                        <p class="mb-0"><i class="fab fa-instagram me-2 text-warning"></i> <strong>@sumit.luv</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container">
+            <div class="mb-3">
+                <a href="https://instagram.com/sumit.luv" class="text-white mx-3 fs-4"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/919572181024" class="text-white mx-3 fs-4"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:wapka1503@gmail.com" class="text-white mx-3 fs-4"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="mb-0 small opacity-75">&copy; 2026 LazyCoder Online. Built by Sumit.</p>
+        </div>
     </footer>
 
+    <a href="https://wa.me/919572181024?text=Hi%20Sumit,%20I%20am%20interested%20in%20a%20project" class="float-wa" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
