@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LazyCoder | Source Code Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f8f9fa; }
+        .navbar { background-color: #2c3e50; } /* Dark Blue like RBC/Professional sites */
+        .card { transition: transform 0.2s; border: none; shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .card:hover { transform: translateY(-5px); }
+        .price-tag { font-size: 1.2rem; font-weight: bold; color: #27ae60; }
+        .tech-badge { font-size: 0.8rem; margin-right: 5px; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark mb-5">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">LazyCoder Store</a>
+            <div class="ms-auto text-white">
+                <small>Built by Sumit</small>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container text-center mb-5">
+        <h1>Premium Source Code Projects</h1>
+        <p class="text-muted">Java (Spring Boot) & Python (Django) projects ready for deployment.</p>
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://via.placeholder.com/400x200?text=Clinic+System" class="card-img-top" alt="Project Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Clinic Management System</h5>
+                        <p class="card-text text-muted">Complete Django project with AI risk analysis features and email notifications.</p>
+                        
+                        <div class="mb-3">
+                            <span class="badge bg-primary tech-badge">Python</span>
+                            <span class="badge bg-success tech-badge">Django</span>
+                            <span class="badge bg-warning text-dark tech-badge">AI</span>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="price-tag">₹499</span>
+                            <a href="#" class="btn btn-outline-dark btn-sm">Buy Source Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://via.placeholder.com/400x200?text=Java+Banking+App" class="card-img-top" alt="Project Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Banking Portal App</h5>
+                        <p class="card-text text-muted">Secure banking app using Spring Boot, Security, and MySQL.</p>
+                        
+                        <div class="mb-3">
+                            <span class="badge bg-danger tech-badge">Java</span>
+                            <span class="badge bg-info text-dark tech-badge">Spring Boot</span>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="price-tag">₹999</span>
+                            <a href="#" class="btn btn-outline-dark btn-sm">Buy Source Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p class="mb-0">&copy; 2026 LazyCoder. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
