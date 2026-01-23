@@ -6,38 +6,26 @@
     <title>LazyCoder | Buy Source Code & Custom Projects</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; }
-        
-        /* Navbar Styling */
         .navbar { background-color: #2c3e50; padding: 15px 0; }
         .navbar-brand { font-weight: bold; font-size: 1.5rem; color: #fff !important; }
         .nav-link { color: rgba(255,255,255,0.8) !important; font-size: 1.1rem; margin-left: 15px; }
-        .nav-link:hover { color: #fff !important; }
         
-        /* Hero Section */
         .hero-section { background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%); color: white; padding: 80px 0; border-radius: 0 0 20px 20px; }
-        
-        /* Contact Bar */
         .contact-bar { background-color: #27ae60; color: white; padding: 10px 0; text-align: center; font-weight: bold; }
         .contact-bar a { color: white; text-decoration: none; margin: 0 10px; }
 
-        /* Card Styling */
         .project-card { border: none; transition: transform 0.3s; border-radius: 12px; overflow: hidden; background: white; }
         .project-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         .price-badge { font-size: 1.25rem; font-weight: 800; color: #27ae60; }
         
-        /* Floating WhatsApp Button for Mobile */
-        .float-wa {
-            position: fixed; bottom: 20px; right: 20px;
-            background-color: #25d366; color: #FFF;
-            border-radius: 50px; text-align: center; font-size: 30px;
-            box-shadow: 2px 2px 3px #999; z-index: 100;
-            width: 60px; height: 60px; line-height: 60px;
-        }
+        .float-wa { position: fixed; bottom: 20px; right: 20px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 3px #999; z-index: 100; width: 60px; height: 60px; line-height: 60px; }
+        
+        .section-title { position: relative; display: inline-block; margin-bottom: 3rem; }
+        .section-title::after { content: ''; display: block; width: 50px; height: 3px; background: #27ae60; margin: 10px auto 0; }
     </style>
 </head>
 <body>
@@ -53,15 +41,14 @@
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="#"><i class="fas fa-code"></i> LazyCoder</a>
-            
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#projects">Source Code</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#custom">Custom Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#featured">Featured</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#all-projects">All Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#custom">Custom</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
@@ -71,70 +58,126 @@
     <header class="hero-section text-center">
         <div class="container">
             <h1 class="display-4 fw-bold">Java & Python Projects</h1>
-            <p class="lead mb-4">High-quality source code for students and developers. Ready to run.</p>
-            <a href="#projects" class="btn btn-light btn-lg fw-bold text-dark px-5">Browse Store</a>
+            <p class="lead mb-4">Download complete source code with reports for your Final Year Project.</p>
+            <a href="#featured" class="btn btn-light btn-lg fw-bold text-dark px-5">Browse Store</a>
         </div>
     </header>
 
-    <section id="projects" class="container my-5">
-        <h2 class="text-center mb-5 fw-bold text-dark">Latest Projects</h2>
+    <!-- FEATURED PROJECTS (New Arrivals) -->
+    <section id="featured" class="container my-5">
+        <div class="text-center">
+            <h2 class="section-title fw-bold text-dark">New Arrivals</h2>
+        </div>
         <div class="row">
 
+            <!-- PROJECT 1: AI BOOK STORE -->
             <div class="col-md-4 mb-4">
                 <div class="card h-100 project-card shadow-sm">
-                    <img src="https://via.placeholder.com/400x220?text=Clinic+Management" class="card-img-top" alt="Project">
+                    <a href="online-book-store-project-in-python-django.html">
+                        <img src="https://via.placeholder.com/400x220?text=AI+Book+Store" class="card-img-top" alt="Project">
+                    </a>
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="badge bg-primary">Python Django</span>
-                            <span class="price-badge">₹499</span>
+                            <span class="badge bg-primary">Python AI</span>
+                            <span class="price-badge">₹699</span>
                         </div>
-                        
-                        <h5 class="card-title">
-    <a href="clinic-management-system-project-in-python-django-with-source-code.html" class="text-decoration-none text-dark">
-        Clinic Management System
-    </a>
-</h5>
-                        <p class="card-text text-muted small">Complete hospital management with AI risk analysis and email notifications.</p>
-                        
-                        <div class="d-grid">
-                            <button class="btn btn-dark">Buy Source Code</button>
-                        </div>
+                        <h5 class="card-title fw-bold">
+                            <a href="online-book-store-project-in-python-django.html" class="text-decoration-none text-dark">AI Book Store Project</a>
+                        </h5>
+                        <p class="card-text text-muted small">E-Commerce with AI Chatbot, Voice Search & Recommendation.</p>
+                        <div class="d-grid"><a href="online-book-store-project-in-python-django.html" class="btn btn-dark">View Details</a></div>
                     </div>
                 </div>
             </div>
 
+            <!-- PROJECT 2: EXAM SYSTEM -->
             <div class="col-md-4 mb-4">
                 <div class="card h-100 project-card shadow-sm">
-                    <img src="https://via.placeholder.com/400x220?text=Banking+System" class="card-img-top" alt="Project">
+                    <a href="online-exam-system-project-in-java-spring-boot.html">
+                        <img src="https://via.placeholder.com/400x220?text=Exam+System" class="card-img-top" alt="Project">
+                    </a>
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center mb-2">
                             <span class="badge bg-danger">Java Spring</span>
                             <span class="price-badge">₹999</span>
                         </div>
-                        <h5 class="card-title fw-bold">Online Banking Portal</h5>
-                        <p class="card-text text-muted small">Secure transaction system with Spring Boot security and MySQL database.</p>
-                        
-                        <div class="d-grid">
-                            <button class="btn btn-dark">Buy Source Code</button>
-                        </div>
+                        <h5 class="card-title fw-bold">
+                            <a href="online-exam-system-project-in-java-spring-boot.html" class="text-decoration-none text-dark">Online Exam System</a>
+                        </h5>
+                        <p class="card-text text-muted small">Complete Exam Portal with Timer, Graph Reports & Admin Panel.</p>
+                        <div class="d-grid"><a href="online-exam-system-project-in-java-spring-boot.html" class="btn btn-dark">View Details</a></div>
                     </div>
                 </div>
             </div>
 
+            <!-- PROJECT 3: EMPLOYEE MANAGEMENT (Linked Here) -->
             <div class="col-md-4 mb-4">
                 <div class="card h-100 project-card shadow-sm">
-                    <img src="https://via.placeholder.com/400x220?text=E-Commerce" class="card-img-top" alt="Project">
+                    <a href="employee-management-system-project-in-java-spring-boot.html">
+                        <img src="https://via.placeholder.com/400x220?text=Employee+Management" class="card-img-top" alt="Project">
+                    </a>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge bg-primary">Java Spring</span>
+                            <span class="price-badge">₹999</span>
+                        </div>
+                        <h5 class="card-title fw-bold">
+                            <a href="employee-management-system-project-in-java-spring-boot.html" class="text-decoration-none text-dark">Employee Management</a>
+                        </h5>
+                        <p class="card-text text-muted small">HR System with Payroll, Attendance Tracking & Leave Management.</p>
+                        <div class="d-grid"><a href="employee-management-system-project-in-java-spring-boot.html" class="btn btn-dark">View Details</a></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ALL PROJECTS (Previous) -->
+    <section id="all-projects" class="container my-5">
+        <div class="text-center">
+            <h2 class="section-title fw-bold text-dark">More Projects</h2>
+        </div>
+        <div class="row">
+
+            <!-- PROJECT 4: CLINIC MANAGEMENT -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 project-card shadow-sm">
+                    <a href="clinic-management-system-project-in-python-django-with-source-code.html">
+                        <img src="https://via.placeholder.com/400x220?text=Clinic+Management" class="card-img-top" alt="Project">
+                    </a>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge bg-success">Python</span>
+                            <span class="price-badge">₹499</span>
+                        </div>
+                        <h5 class="card-title fw-bold">
+                            <a href="clinic-management-system-project-in-python-django-with-source-code.html" class="text-decoration-none text-dark">Clinic Management System</a>
+                        </h5>
+                        <p class="card-text text-muted small">Hospital system with AI risk analysis and appointment booking.</p>
+                        <div class="d-grid"><a href="clinic-management-system-project-in-python-django-with-source-code.html" class="btn btn-outline-dark">View Details</a></div>
+                    </div>
+                </div>
+            </div>
+
+           
+
+            <!-- PROJECT 6: E-COMMERCE -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 project-card shadow-sm">
+                    <a href="simple-ecommerce-website-project-in-php-mysql.html">
+                        <img src="https://via.placeholder.com/400x220?text=E-Commerce" class="card-img-top" alt="Project">
+                    </a>
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center mb-2">
                             <span class="badge bg-warning text-dark">PHP MySQL</span>
                             <span class="price-badge">₹299</span>
                         </div>
-                        <h5 class="card-title fw-bold">Simple E-Commerce</h5>
-                        <p class="card-text text-muted small">Lightweight shopping cart project ideal for final year students.</p>
-                        
-                        <div class="d-grid">
-                            <button class="btn btn-dark">Buy Source Code</button>
-                        </div>
+                        <h5 class="card-title fw-bold">
+                            <a href="simple-ecommerce-website-project-in-php-mysql.html" class="text-decoration-none text-dark">Simple E-Commerce</a>
+                        </h5>
+                        <p class="card-text text-muted small">Lightweight shopping cart project ideal for beginners.</p>
+                        <div class="d-grid"><a href="simple-ecommerce-website-project-in-php-mysql.html" class="btn btn-outline-dark">View Details</a></div>
                     </div>
                 </div>
             </div>
@@ -147,22 +190,14 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <h2 class="fw-bold mb-3">Need a Custom Project?</h2>
-                    <p class="lead text-muted">I can build a project specifically for your requirements in Java, Python, or PHP.</p>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Final Year College Projects</li>
-                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Business Websites</li>
-                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Bug Fixing & Support</li>
-                    </ul>
+                    <p class="lead text-muted">I can build any Java, Python, or Web project for you.</p>
                     <a href="https://wa.me/919572181024?text=Hi%20Sumit,%20I%20need%20a%20custom%20project" class="btn btn-success btn-lg mt-3">
                         <i class="fab fa-whatsapp"></i> Chat on WhatsApp
                     </a>
                 </div>
-                <div class="col-md-6 text-center mt-4 mt-md-0">
-                    <div class="p-5 bg-light rounded-3 border border-2">
-                        <h4>Contact Directly</h4>
-                        <hr>
+                <div class="col-md-6 text-center mt-4">
+                    <div class="p-5 bg-light rounded-3 border">
                         <p class="mb-2"><i class="fas fa-phone-alt me-2 text-primary"></i> <strong>9572181024</strong></p>
-                        <p class="mb-2"><i class="fas fa-envelope me-2 text-danger"></i> <strong>wapka1503@gmail.com</strong></p>
                         <p class="mb-0"><i class="fab fa-instagram me-2 text-warning"></i> <strong>@sumit.luv</strong></p>
                     </div>
                 </div>
@@ -177,13 +212,11 @@
                 <a href="https://wa.me/919572181024" class="text-white mx-3 fs-4"><i class="fab fa-whatsapp"></i></a>
                 <a href="mailto:wapka1503@gmail.com" class="text-white mx-3 fs-4"><i class="fas fa-envelope"></i></a>
             </div>
-            <p class="mb-0 small opacity-75">&copy; 2026 LazyCoder Online. Built by Sumit.</p>
+            <p class="mb-0 small opacity-75">&copy; 2026 LazyCoder Online.</p>
         </div>
     </footer>
 
-    <a href="https://wa.me/919572181024?text=Hi%20Sumit,%20I%20am%20interested%20in%20a%20project" class="float-wa" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <a href="https://wa.me/919572181024?text=Hi%20Sumit" class="float-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
