@@ -14,14 +14,225 @@
        /* Hero Section with Local Image Overlay */
         .hero-section { 
             /* Make sure 'hero-bg.jpg' is in your images folder */
-            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(76, 161, 175, 0.9)), url('images/hero-bg.jpg');
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%), url('images/hero-bg.jpg');
             background-size: cover; 
             background-position: center;
+            background-attachment: fixed;
             color: white; 
-            padding: 100px 0; 
-            border-radius: 0 0 20px 20px; 
+            padding: 120px 0; 
+            border-radius: 0 0 30px 30px; 
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
+        /* Animated background elements */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(30px); }
+        }
+        
+        .hero-section .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-section h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            letter-spacing: -1px;
+            line-height: 1.1;
+            animation: slideDown 0.8s ease-out;
+        }
+        
+        .hero-section .lead {
+            font-size: 1.4rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            animation: slideUp 0.8s ease-out 0.2s both;
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hero-section .btn {
+            animation: slideUp 0.8s ease-out 0.4s both;
+            padding: 15px 50px !important;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+            border: 2px solid white;
+        }
+        
+        .hero-section .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3) !important;
+            background-color: #28a745 !important;
+            border-color: #28a745 !important;
+            color: white !important;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            .hero-section .lead {
+                font-size: 1.1rem;
+            }
+            .hero-section {
+                padding: 80px 0;
+                min-height: auto;
+            }
+        }
+        
+        
+        /* Category Carousel Styling */
+        .category-carousel { position: relative; }
+        .carousel-inner { padding: 30px 0; }
+        .carousel-item { display: none !important; }
+        .carousel-item.active { display: block !important; }
+        
+        .cat-card-carousel { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px; 
+            padding: 40px 30px; 
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            text-decoration: none;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Different gradient colors for each card */
+        .cat-card-carousel:nth-child(1) { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .cat-card-carousel:nth-child(2) { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .cat-card-carousel:nth-child(3) { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .cat-card-carousel:nth-child(4) { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        
+        /* Add subtle pattern/shine effect */
+        .cat-card-carousel::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 250px;
+            height: 250px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            transform: translate(50px, -50px);
+        }
+        
+        .cat-card-carousel::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -30%;
+            width: 180px;
+            height: 180px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            transform: translate(-30px, 30px);
+        }
+        
+        .cat-card-carousel:hover { 
+            transform: translateY(-20px) scale(1.08);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+        
+        .cat-icon-carousel { 
+            font-size: 4rem; 
+            color: rgba(255, 255, 255, 1);
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));
+        }
+        
+        .cat-title-carousel { 
+            font-weight: 800; 
+            font-size: 1.35rem; 
+            margin-bottom: 10px;
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 3px 6px rgba(0,0,0,0.2);
+            letter-spacing: 0.5px;
+        }
+        
+        .cat-subtitle-carousel {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        
+        /* Mobile: Hide 2nd, 3rd, 4th items per slide */
+        @media (max-width: 767px) {
+            .carousel-item .row > div:nth-child(n+2) {
+                display: none !important;
+            }
+            .carousel-item .row > div:first-child {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+        
+        /* Carousel Controls */
+        .carousel-control-prev-icon, .carousel-control-next-icon {
+            background-color: #28a745;
+            border-radius: 50%;
+            padding: 10px;
+        }
         
         /* Category Circles */
         .cat-card { transition: 0.3s; cursor: pointer; border: 1px solid #eee; background: white; }
@@ -37,96 +248,136 @@
 </head>
 <body>
 
-    <!-- REUSABLE NAVBAR -->
+    <!-- NAVBAR PLACEHOLDER -->
     <div id="navbar-placeholder"></div>
 
    
     <!-- Hero Section -->
     <header class="hero-section text-center">
         <div class="container">
-            <h1 class="display-3 fw-bold">Java & Python Projects</h1>
-            <p class="lead mb-4">Download complete source code with reports for your Final Year Project.</p>
-            <a href="#featured" class="btn btn-light btn-lg fw-bold text-dark px-5 shadow">Browse Store</a>
+            <h1 class="display-3 fw-bold">Build Your Dream Project Today</h1>
+            <p class="lead mb-4">Complete Source Code with Reports - Java, Python, PHP, Android & More</p>
+            <a href="#featured" class="btn btn-light btn-lg fw-bold text-dark px-5 shadow">Browse Projects</a>
         </div>
     </header>
 
 
-    <!-- 10 CATEGORIES SECTION -->
+    <!-- CATEGORIES CAROUSEL SECTION -->
     <section id="categories" class="container my-5">
-        <div class="text-center">
+        <div class="text-center mb-4">
             <h2 class="section-title">Browse by Category</h2>
         </div>
-        <div class="row g-4">
-            <!-- 1. Java -->
-            <div class="col-6 col-md-3 text-center">
-                <div class="p-4 rounded cat-card">
-                    <i class="fab fa-java cat-icon text-danger"></i>
-                    <h5 class="fw-bold">Java Spring</h5>
+        
+        <div id="categoriesCarousel" class="carousel slide category-carousel" data-bs-ride="false">
+            <div class="carousel-inner">
+                <!-- Slide 1: Java, Python, PHP, Android (4 items) -->
+                <div class="carousel-item active">
+                    <div class="row g-4">
+                        <!-- 1. Java Spring Boot -->
+                        <div class="col-12 col-md-3">
+                            <a href="categories/java-spring-boot.html" class="cat-card-carousel text-center">
+                                <i class="fab fa-java cat-icon-carousel"></i>
+                                <div class="cat-title-carousel">Java Spring Boot</div>
+                                <div class="cat-subtitle-carousel">Enterprise Backend Projects</div>
+                            </a>
+                        </div>
+                        <!-- 2. Python Django -->
+                        <div class="col-12 col-md-3">
+                            <a href="categories/python-django.html" class="cat-card-carousel text-center">
+                                <i class="fab fa-python cat-icon-carousel"></i>
+                                <div class="cat-title-carousel">Python Django</div>
+                                <div class="cat-subtitle-carousel">Web Apps & AI Solutions</div>
+                            </a>
+                        </div>
+                        <!-- 3. PHP MySQL -->
+                        <div class="col-12 col-md-3">
+                            <a href="categories/php-mysql.html" class="cat-card-carousel text-center">
+                                <i class="fab fa-php cat-icon-carousel"></i>
+                                <div class="cat-title-carousel">PHP MySQL</div>
+                                <div class="cat-subtitle-carousel">Database Driven Websites</div>
+                            </a>
+                        </div>
+                        <!-- 4. Android App -->
+                        <div class="col-12 col-md-3">
+                            <a href="categories/android-app.html" class="cat-card-carousel text-center">
+                                <i class="fab fa-android cat-icon-carousel"></i>
+                                <div class="cat-title-carousel">Android App</div>
+                                <div class="cat-subtitle-carousel">Mobile App Development</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2: AI, Data Science, C++, React (4 items) -->
+                <div class="carousel-item">
+                    <div class="row g-4">
+                        <!-- 5. AI & ML -->
+                        <div class="col-12 col-md-3">
+                            <a href="categories/ai-ml.html" class="cat-card-carousel text-center">
+                                <i class="fas fa-brain cat-icon-carousel"></i>
+                                <div class="cat-title-carousel">AI & ML</div>
+                                <div class="cat-subtitle-carousel">Machine Learning Projects</div>
+                            </a>
+                        </div>
+                        <!-- 6. Data Science -->
+                        <div class="col-12 col-md-3">
+                            <a href="categories/data-science.html" class="cat-card-carousel text-center">
+                                <i class="fas fa-chart-line cat-icon-carousel"></i>
+                                <div class="cat-title-carousel">Data Science</div>
+                                <div class="cat-subtitle-carousel">Analytics & Visualization</div>
+                            </a>
+                        </div>
+                        <!-- 7. C / C++ -->
+                        <div class="col-12 col-md-3">
+                            <a href="categories/cpp.html" class="cat-card-carousel text-center">
+                                <i class="fas fa-terminal cat-icon-carousel"></i>
+                                <div class="cat-title-carousel">C / C++</div>
+                                <div class="cat-subtitle-carousel">System Programming</div>
+                            </a>
+                        </div>
+                        <!-- 8. React JS -->
+                        <div class="col-12 col-md-3">
+                            <a href="categories/react-js.html" class="cat-card-carousel text-center">
+                                <i class="fab fa-react cat-icon-carousel"></i>
+                                <div class="cat-title-carousel">React JS</div>
+                                <div class="cat-subtitle-carousel">Modern Frontend Development</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3: Mini, Major (2 items) -->
+                <div class="carousel-item">
+                    <div class="row g-4">
+                        <!-- 9. Mini Projects -->
+                        <div class="col-12 col-md-3">
+                            <a href="categories/mini-projects.html" class="cat-card-carousel text-center">
+                                <i class="fas fa-laptop-code cat-icon-carousel"></i>
+                                <div class="cat-title-carousel">Mini Projects</div>
+                                <div class="cat-subtitle-carousel">Small Learning Projects</div>
+                            </a>
+                        </div>
+                        <!-- 10. Major Projects -->
+                        <div class="col-12 col-md-3">
+                            <a href="categories/major-projects.html" class="cat-card-carousel text-center">
+                                <i class="fas fa-project-diagram cat-icon-carousel"></i>
+                                <div class="cat-title-carousel">Major Projects</div>
+                                <div class="cat-subtitle-carousel">Complete Real World Projects</div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- 2. Python -->
-            <div class="col-6 col-md-3 text-center">
-                <div class="p-4 rounded cat-card">
-                    <i class="fab fa-python cat-icon text-primary"></i>
-                    <h5 class="fw-bold">Python Django</h5>
-                </div>
-            </div>
-            <!-- 3. PHP -->
-            <div class="col-6 col-md-3 text-center">
-                <div class="p-4 rounded cat-card">
-                    <i class="fab fa-php cat-icon text-primary"></i>
-                    <h5 class="fw-bold">PHP MySQL</h5>
-                </div>
-            </div>
-            <!-- 4. Android -->
-            <div class="col-6 col-md-3 text-center">
-                <div class="p-4 rounded cat-card">
-                    <i class="fab fa-android cat-icon text-success"></i>
-                    <h5 class="fw-bold">Android App</h5>
-                </div>
-            </div>
-            <!-- 5. AI/ML -->
-            <div class="col-6 col-md-3 text-center">
-                <div class="p-4 rounded cat-card">
-                    <i class="fas fa-brain cat-icon text-info"></i>
-                    <h5 class="fw-bold">AI & ML</h5>
-                </div>
-            </div>
-            <!-- 6. Data Science -->
-            <div class="col-6 col-md-3 text-center">
-                <div class="p-4 rounded cat-card">
-                    <i class="fas fa-chart-line cat-icon text-warning"></i>
-                    <h5 class="fw-bold">Data Science</h5>
-                </div>
-            </div>
-            <!-- 7. C/C++ -->
-            <div class="col-6 col-md-3 text-center">
-                <div class="p-4 rounded cat-card">
-                    <i class="fas fa-terminal cat-icon text-secondary"></i>
-                    <h5 class="fw-bold">C / C++</h5>
-                </div>
-            </div>
-            <!-- 8. React -->
-            <div class="col-6 col-md-3 text-center">
-                <div class="p-4 rounded cat-card">
-                    <i class="fab fa-react cat-icon text-info"></i>
-                    <h5 class="fw-bold">React JS</h5>
-                </div>
-            </div>
-            <!-- 9. Mini Projects -->
-            <div class="col-6 col-md-3 text-center">
-                <div class="p-4 rounded cat-card">
-                    <i class="fas fa-laptop-code cat-icon text-dark"></i>
-                    <h5 class="fw-bold">Mini Projects</h5>
-                </div>
-            </div>
-            <!-- 10. Major Projects -->
-            <div class="col-6 col-md-3 text-center">
-                <div class="p-4 rounded cat-card">
-                    <i class="fas fa-project-diagram cat-icon text-danger"></i>
-                    <h5 class="fw-bold">Major Projects</h5>
-                </div>
-            </div>
+
+            <!-- Carousel Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#categoriesCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#categoriesCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
     </section>
 
@@ -252,7 +503,7 @@
         </div>
     </section>
 
-    <!-- REUSABLE FOOTER -->
+    <!-- FOOTER PLACEHOLDER -->
     <div id="footer-placeholder"></div>
 
     <a href="https://wa.me/919572181024" class="float-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
