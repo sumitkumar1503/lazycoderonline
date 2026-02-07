@@ -125,95 +125,87 @@
         
         
         /* Category Carousel Styling */
-        .category-carousel { position: relative; }
-        .carousel-inner { padding: 30px 0; }
-        .carousel-item { display: none !important; }
+        .category-carousel { position: relative; padding: 20px 0; }
+        .carousel-inner { padding: 20px 0; }
+        .carousel-item { display: none !important; transition: transform 0.6s ease-in-out; }
         .carousel-item.active { display: block !important; }
         
         .cat-card-carousel { 
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 20px; 
-            padding: 40px 30px; 
-            height: 300px;
+            border-radius: 24px; 
+            padding: 30px 20px; 
+            height: 320px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
-            border: none;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-            text-decoration: none;
-            color: white;
+            border: 0;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-decoration: none !important;
+            color: white !important;
             position: relative;
             overflow: hidden;
+            z-index: 1;
         }
         
-        /* Different gradient colors for each card */
-        .cat-card-carousel:nth-child(1) { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-        .cat-card-carousel:nth-child(2) { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
-        .cat-card-carousel:nth-child(3) { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
-        .cat-card-carousel:nth-child(4) { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
-        
-        /* Add subtle pattern/shine effect */
+        /* Glassy/Pattern Overlay */
         .cat-card-carousel::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 250px;
-            height: 250px;
-            background: rgba(255, 255, 255, 0.15);
+            top: -50%; right: -50%;
+            width: 300px; height: 300px;
+            background: rgba(255,255,255,0.15);
             border-radius: 50%;
-            transform: translate(50px, -50px);
+            z-index: -1;
         }
-        
         .cat-card-carousel::after {
             content: '';
             position: absolute;
-            bottom: -30%;
-            left: -30%;
-            width: 180px;
-            height: 180px;
-            background: rgba(255, 255, 255, 0.08);
+            bottom: -50%; left: -20%;
+            width: 250px; height: 250px;
+            background: rgba(255,255,255,0.1);
             border-radius: 50%;
-            transform: translate(-30px, 30px);
+            z-index: -1;
         }
         
+        /* Hover Effects */
         .cat-card-carousel:hover { 
-            transform: translateY(-20px) scale(1.08);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+        }
+        .cat-card-carousel:hover .cat-icon-carousel {
+            transform: scale(1.15) rotate(-5deg);
         }
         
+        /* Vibrant Gradients per Column */
+        .col-md-3:nth-child(1) .cat-card-carousel { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); } /* Purple */
+        .col-md-3:nth-child(2) .cat-card-carousel { background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%); } /* Hot Pink */
+        .col-md-3:nth-child(3) .cat-card-carousel { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); } /* Cyan Blue */
+        .col-md-3:nth-child(4) .cat-card-carousel { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); } /* Green/Teal */
+
+        /* Icons */
         .cat-icon-carousel { 
-            font-size: 4rem; 
-            color: rgba(255, 255, 255, 1);
-            margin-bottom: 15px;
-            position: relative;
-            z-index: 1;
-            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));
+            font-size: 4.5rem; 
+            margin-bottom: 25px;
+            transition: transform 0.4s ease;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
         }
         
         .cat-title-carousel { 
             font-weight: 800; 
-            font-size: 1.35rem; 
+            font-size: 1.5rem; 
             margin-bottom: 10px;
             text-align: center;
-            color: white;
-            position: relative;
-            z-index: 1;
-            text-shadow: 0 3px 6px rgba(0,0,0,0.2);
-            letter-spacing: 0.5px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
         
         .cat-subtitle-carousel {
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+            opacity: 0.95;
             text-align: center;
-            position: relative;
-            z-index: 1;
             font-weight: 500;
-            line-height: 1.4;
+            line-height: 1.5;
         }
         
         /* Mobile: Hide 2nd, 3rd, 4th items per slide */
@@ -225,19 +217,93 @@
                 width: 100%;
                 max-width: 100%;
             }
+            .cat-card-carousel { height: 260px; }
         }
         
         /* Carousel Controls */
+        .carousel-control-prev, .carousel-control-next { width: 50px; opacity: 1; }
         .carousel-control-prev-icon, .carousel-control-next-icon {
             background-color: #28a745;
             border-radius: 50%;
-            padding: 10px;
+            padding: 20px;
+            background-size: 50%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+        .carousel-control-prev-icon:hover, .carousel-control-next-icon:hover {
+            transform: scale(1.1);
+            background-color: #218838;
         }
         
         /* Category Circles */
-        .cat-card { transition: 0.3s; cursor: pointer; border: 1px solid #eee; background: white; }
-        .cat-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-color: #28a745; }
-        .cat-icon { font-size: 2.5rem; color: #28a745; margin-bottom: 15px; }
+        /* Enhanced Project Cards */
+        .project-card { 
+            border: none; 
+            border-radius: 16px; 
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            background: #fff;
+            overflow: hidden;
+        }
+        .project-card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1) !important; 
+        }
+        .project-thumb {
+            height: 200px;
+            background: #f8f9fa;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .project-thumb i {
+            font-size: 4rem;
+            color: #dee2e6;
+        }
+        .project-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .price-tag {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #28a745;
+        }
+        .btn-view {
+            border-radius: 8px;
+            font-weight: 600;
+            border: 2px solid #f1f3f5;
+            background: #f8f9fa;
+            color: #495057;
+            transition: all 0.2s;
+        }
+        .btn-view:hover {
+            background: #e9ecef;
+            border-color: #e9ecef;
+            color: #212529;
+        }
+        .btn-buy {
+            border-radius: 8px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            border: none;
+            color: white;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.2);
+            transition: all 0.2s;
+        }
+        .btn-buy:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(40, 167, 69, 0.3);
+            color: white;
+        }
         
         /* Section Titles */
         .section-title { font-weight: 800; position: relative; display: inline-block; margin-bottom: 40px; }
@@ -381,122 +447,174 @@
         </div>
     </section>
 
-     <!-- FEATURED PROJECTS (New Arrivals) -->
-    <section id="featured" class="container my-5">
-        <div class="text-center">
-            <h2 class="section-title fw-bold text-dark">New Arrivals</h2>
+    <!-- LATEST PROJECTS SECTION -->
+    <section id="latest-projects" class="container my-5 pt-4">
+        <div class="text-center mb-5">
+            <h2 class="section-title fw-bold text-dark">Latest Projects</h2>
+            <p class="text-muted lead">Premium source code with complete documentation</p>
         </div>
-        <div class="row">
-
-            <!-- PROJECT 1: AI BOOK STORE -->
-            <div class="col-md-4 mb-4">
+        
+        <div class="row g-4">
+            <!-- Project 1: AI Book Store -->
+            <div class="col-md-6 col-lg-3">
                 <div class="card h-100 project-card shadow-sm">
-                    <a href="online-book-store-project-in-python-django.html">
-                        <!-- <img src="https://via.placeholder.com/400x220?text=AI+Book+Store" class="card-img-top" alt="Project"> -->
-                    </a>
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="badge bg-primary">Python AI</span>
-                            <span class="price-badge">₹699</span>
+                    <a href="online-book-store-project-in-python-django.html" class="text-decoration-none">
+                        <div class="project-thumb">
+                            <span class="badge bg-primary project-badge">Python AI</span>
+                            <i class="fas fa-robot"></i>
                         </div>
-                        <h5 class="card-title fw-bold">
-                            <a href="online-book-store-project-in-python-django.html" class="text-decoration-none text-dark">AI Book Store Project</a>
-                        </h5>
-                        <p class="card-text text-muted small">E-Commerce with AI Chatbot, Voice Search & Recommendation.</p>
-                        <div class="d-grid"><a href="online-book-store-project-in-python-django.html" class="btn btn-dark">View Details</a></div>
+                    </a>
+                    <div class="card-body d-flex flex-column p-4">
+                        <h5 class="fw-bold mb-1 text-dark">AI Book Store</h5>
+                        <div class="mb-3">
+                            <span class="price-tag">₹699</span>
+                            <span class="text-muted small text-decoration-line-through ms-2">₹1499</span>
+                        </div>
+                        <p class="text-muted small mb-4 flex-grow-1">Smart E-Commerce with Chatbot & Voice Search features.</p>
+                        
+                        <div class="d-flex gap-2">
+                            <a href="online-book-store-project-in-python-django.html" class="btn btn-view flex-grow-1">View</a>
+                            <button class="btn btn-buy flex-grow-1"><i class="fas fa-bolt me-1"></i> Buy</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- PROJECT 2: EXAM SYSTEM -->
-            <div class="col-md-4 mb-4">
+            <!-- Project 2: Exam System -->
+            <div class="col-md-6 col-lg-3">
                 <div class="card h-100 project-card shadow-sm">
-                    <a href="online-exam-system-project-in-java-spring-boot.html">
-                        <!-- <img src="https://via.placeholder.com/400x220?text=Exam+System" class="card-img-top" alt="Project"> -->
-                    </a>
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="badge bg-danger">Java Spring</span>
-                            <span class="price-badge">₹999</span>
+                    <a href="online-exam-system-project-in-java-spring-boot.html" class="text-decoration-none">
+                        <div class="project-thumb">
+                            <span class="badge bg-danger project-badge">Java Spring</span>
+                            <i class="fas fa-laptop-code"></i>
                         </div>
-                        <h5 class="card-title fw-bold">
-                            <a href="online-exam-system-project-in-java-spring-boot.html" class="text-decoration-none text-dark">Online Exam System</a>
-                        </h5>
-                        <p class="card-text text-muted small">Complete Exam Portal with Timer, Graph Reports & Admin Panel.</p>
-                        <div class="d-grid"><a href="online-exam-system-project-in-java-spring-boot.html" class="btn btn-dark">View Details</a></div>
+                    </a>
+                    <div class="card-body d-flex flex-column p-4">
+                        <h5 class="fw-bold mb-1 text-dark">Online Exam System</h5>
+                        <div class="mb-3">
+                            <span class="price-tag">₹999</span>
+                            <span class="text-muted small text-decoration-line-through ms-2">₹1999</span>
+                        </div>
+                        <p class="text-muted small mb-4 flex-grow-1">Secure exam portal with timer, auto-grading & admin panel.</p>
+                        
+                        <div class="d-flex gap-2">
+                            <a href="online-exam-system-project-in-java-spring-boot.html" class="btn btn-view flex-grow-1">View</a>
+                            <button class="btn btn-buy flex-grow-1"><i class="fas fa-bolt me-1"></i> Buy</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- PROJECT 3: EMPLOYEE MANAGEMENT (Linked Here) -->
-            <div class="col-md-4 mb-4">
+            <!-- Project 3: Employee Management -->
+            <div class="col-md-6 col-lg-3">
                 <div class="card h-100 project-card shadow-sm">
-                    <a href="employee-management-system-project-in-java-spring-boot.html">
-                        <!-- <img src="https://via.placeholder.com/400x220?text=Employee+Management" class="card-img-top" alt="Project"> -->
-                    </a>
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="badge bg-primary">Java Spring</span>
-                            <span class="price-badge">₹999</span>
+                    <a href="employee-management-system-project-in-java-spring-boot.html" class="text-decoration-none">
+                        <div class="project-thumb">
+                            <span class="badge bg-warning text-dark project-badge">Java Spring</span>
+                            <i class="fas fa-users-cog"></i>
                         </div>
-                        <h5 class="card-title fw-bold">
-                            <a href="employee-management-system-project-in-java-spring-boot.html" class="text-decoration-none text-dark">Employee Management</a>
-                        </h5>
-                        <p class="card-text text-muted small">HR System with Payroll, Attendance Tracking & Leave Management.</p>
-                        <div class="d-grid"><a href="employee-management-system-project-in-java-spring-boot.html" class="btn btn-dark">View Details</a></div>
+                    </a>
+                    <div class="card-body d-flex flex-column p-4">
+                        <h5 class="fw-bold mb-1 text-dark">Employee Manager</h5>
+                        <div class="mb-3">
+                            <span class="price-tag">₹999</span>
+                            <span class="text-muted small text-decoration-line-through ms-2">₹1999</span>
+                        </div>
+                        <p class="text-muted small mb-4 flex-grow-1">HR system for payroll, attendance & leave management.</p>
+                        
+                        <div class="d-flex gap-2">
+                            <a href="employee-management-system-project-in-java-spring-boot.html" class="btn btn-view flex-grow-1">View</a>
+                            <button class="btn btn-buy flex-grow-1"><i class="fas fa-bolt me-1"></i> Buy</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Project 4: Clinic Management -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 project-card shadow-sm">
+                    <a href="clinic-management-system-project-in-python-django-with-source-code.html" class="text-decoration-none">
+                        <div class="project-thumb">
+                            <span class="badge bg-success project-badge">Python</span>
+                            <i class="fas fa-clinic-medical"></i>
+                        </div>
+                    </a>
+                    <div class="card-body d-flex flex-column p-4">
+                        <h5 class="fw-bold mb-1 text-dark">Clinic System</h5>
+                        <div class="mb-3">
+                            <span class="price-tag">₹499</span>
+                            <span class="text-muted small text-decoration-line-through ms-2">₹999</span>
+                        </div>
+                        <p class="text-muted small mb-4 flex-grow-1">Hospital management with appointments & patient history.</p>
+                        
+                        <div class="d-flex gap-2">
+                            <a href="clinic-management-system-project-in-python-django-with-source-code.html" class="btn btn-view flex-grow-1">View</a>
+                            <button class="btn btn-buy flex-grow-1"><i class="fas fa-bolt me-1"></i> Buy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-5">
+            <a href="categories/major-projects.html" class="btn btn-outline-dark rounded-pill px-5 py-2 fw-bold">View All Projects</a>
         </div>
     </section>
 
-    <!-- ALL PROJECTS (Previous) -->
-    <section id="all-projects" class="container my-5">
-        <div class="text-center">
-            <h2 class="section-title fw-bold text-dark">More Projects</h2>
-        </div>
-        <div class="row">
+    <!-- CUSTOM PROJECT SECTION -->
+    <section id="custom" class="py-5 position-relative overflow-hidden" style="background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%); color: white;">
+        <!-- Decorative Background Elements -->
+        <div style="position: absolute; top: -100px; right: -50px; width: 300px; height: 300px; background: rgba(255,255,255,0.05); border-radius: 50%;"></div>
+        <div style="position: absolute; bottom: -50px; left: -50px; width: 200px; height: 200px; background: rgba(255,255,255,0.05); border-radius: 50%;"></div>
 
-            <!-- PROJECT 4: CLINIC MANAGEMENT -->
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 project-card shadow-sm">
-                    <a href="clinic-management-system-project-in-python-django-with-source-code.html">
-                         </a>
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="badge bg-success">Python</span>
-                            <span class="price-badge">₹499</span>
-                        </div>
-                        <h5 class="card-title fw-bold">
-                            <a href="clinic-management-system-project-in-python-django-with-source-code.html" class="text-decoration-none text-dark">Clinic Management System</a>
-                        </h5>
-                        <p class="card-text text-muted small">Hospital system with AI risk analysis and appointment booking.</p>
-                        <div class="d-grid"><a href="clinic-management-system-project-in-python-django-with-source-code.html" class="btn btn-outline-dark">View Details</a></div>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-        </div>
-    </section>
-
-    <section id="custom" class="bg-white py-5">
-        <div class="container">
+        <div class="container position-relative z-1">
             <div class="row align-items-center">
-                <div class="col-md-6">
-                    <h2 class="fw-bold mb-3">Need a Custom Project?</h2>
-                    <p class="lead text-muted">I can build any Java, Python, or Web project for you.</p>
-                    <a href="https://wa.me/919572181024?text=Hi%20Sumit,%20I%20need%20a%20custom%20project" class="btn btn-success btn-lg mt-3">
-                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
-                    </a>
+                <div class="col-lg-7 mb-4 mb-lg-0">
+                    <span class="badge bg-warning text-dark mb-2 px-3 py-2 rounded-pill fw-bold"><i class="fas fa-star me-1"></i> Premium Service</span>
+                    <h2 class="fw-bold display-4 mb-3">Need a Custom Project?</h2>
+                    <p class="lead mb-4" style="opacity: 0.9; font-weight: 300;">I can build any Java, Python, or Web project tailored to your specific requirements. Get high-quality source code, complete documentation, and setup support.</p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="https://wa.me/919572181024?text=Hi%20Sumit,%20I%20need%20a%20custom%20project" class="btn btn-success btn-lg rounded-pill px-4 shadow-lg border-0" style="background: #25d366;">
+                            <i class="fab fa-whatsapp me-2"></i> Chat on WhatsApp
+                        </a>
+                        <a href="mailto:wapka1503@gmail.com" class="btn btn-outline-light btn-lg rounded-pill px-4">
+                            <i class="fas fa-envelope me-2"></i> Email Me
+                        </a>
+                    </div>
                 </div>
-                <div class="col-md-6 text-center mt-4">
-                    <div class="p-5 bg-light rounded-3 border">
-                        <p class="mb-2"><i class="fas fa-phone-alt me-2 text-primary"></i> <strong>9572181024</strong></p>
-                        <p class="mb-0"><i class="fab fa-instagram me-2 text-warning"></i> <strong>@sumit.luv</strong></p>
+                <div class="col-lg-5">
+                    <div class="p-4 rounded-4 shadow-lg" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
+                        <h4 class="fw-bold mb-4 text-center">Get in Touch</h4>
+                        
+                        <div class="d-flex align-items-center mb-3 p-3 rounded-3" style="background: rgba(0,0,0,0.2);">
+                            <div class="bg-white text-primary rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 45px; height: 45px;">
+                                <i class="fas fa-phone-alt fs-5"></i>
+                            </div>
+                            <div>
+                                <div class="small opacity-75 text-uppercase fw-bold" style="font-size: 0.7rem;">Call / WhatsApp</div>
+                                <div class="fw-bold fs-5">9572181024</div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center mb-3 p-3 rounded-3" style="background: rgba(0,0,0,0.2);">
+                            <div class="bg-white text-danger rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 45px; height: 45px;">
+                                <i class="fas fa-envelope fs-5"></i>
+                            </div>
+                            <div>
+                                <div class="small opacity-75 text-uppercase fw-bold" style="font-size: 0.7rem;">Email Address</div>
+                                <div class="fw-bold fs-5">wapka1503@gmail.com</div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center p-3 rounded-3" style="background: rgba(0,0,0,0.2);">
+                            <div class="bg-white text-warning rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 45px; height: 45px;">
+                                <i class="fab fa-instagram fs-5"></i>
+                            </div>
+                            <div>
+                                <div class="small opacity-75 text-uppercase fw-bold" style="font-size: 0.7rem;">Instagram</div>
+                                <div class="fw-bold fs-5">@sumit.luv</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
